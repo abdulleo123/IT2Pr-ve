@@ -1,13 +1,9 @@
-from random import randint
-
 class Bankkonto:
-    kontonummer_counter = 0
 
     def __init__(self, saldo, fornavn, etternavn):
         self.saldo = saldo
         self.navn = fornavn
         self.etternavn = etternavn
-        self.kontonummer = Bankkonto.kontonummer_counter
 
     def settPenger(self, amount):
         self.saldo += amount
@@ -20,6 +16,7 @@ class Bankkonto:
             amount = int(amount)
             if amount <= 0:
                 print("Please enter a positive withdrawal amount.")
+                print("---------------------------------------------")
                 return self.saldo
         except ValueError:
             print("Invalid input. Please enter a valid numeric value for the withdrawal amount.")
@@ -35,7 +32,7 @@ class Bankkonto:
         return self.saldo
 
     def displayAccountInfo(self):
-        print(f"Account Information: {self.navn} {self.etternavn}, Account Number: {self.kontonummer}, Balance: {self.saldo}")
+        print(f"Account Information: {self.navn} {self.etternavn}, Balance: {self.saldo}")
 
 
 class Sparekonto(Bankkonto):
